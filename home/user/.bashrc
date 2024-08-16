@@ -12,6 +12,10 @@ PS1='[\u@\h \W]\$ '
 
 #---
 
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -26,7 +30,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;35m\]$(parse_git_branch)\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -53,6 +57,15 @@ alias rm='rm -I'
 # more path to PATH
 PATH=$PATH:$HOME/.local/bin  # For programs such as AppImages or untared stuff
 PATH=$PATH:$HOME/tabber  # For my tabber program
+
+#---
+
+happenstance=$(( (RANDOM % 12) + 1 ))
+if [ "$happenstance" -eq 1 ]; then
+	cows=('' '-b' '-d' '-f dragon' '-f elephant' '-f kitty' '-f moose' '-f stegosaurus' '-f turtle' '-f tux' '-f vader')
+	cow_of_fate=${cows[$RANDOM % ${#cows[@]}]}
+	figlet -c WELCOME BACK YOU STUPID BASTARD! |pv -qL 100 &&figlet -cf digital how\'s it going? |pv -qL 100 ; fortune |cowsay $cow_of_fate |pv -qL 200
+fi
 
 #---
 
