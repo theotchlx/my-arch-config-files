@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+konsole -e /usr/bin/cava &
+konsole -e /usr/bin/pipes.sh &
