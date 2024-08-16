@@ -62,7 +62,7 @@ PATH=$PATH:$HOME/tabber  # For my tabber program
 
 happenstance=$(( (RANDOM % 12) + 1 ))
 if [ "$happenstance" -eq 1 ]; then
-	cows=('' '-b' '-d' '-f dragon' '-f elephant' '-f kitty' '-f moose' '-f stegosaurus' '-f turtle' '-f tux' '-f vader')
+	cows=('' '-b' '-d' '-f dragon' '-f elephant' '-f kitty' '-f moose' '-f stegosaurus' '-f turtle' '-f tux' '-f vader' '-f blowfish' '-f flaming-sheep')
 	cow_of_fate=${cows[$RANDOM % ${#cows[@]}]}
 	figlet -c WELCOME BACK YOU STUPID BASTARD! |pv -qL 100 &&figlet -cf digital how\'s it going? |pv -qL 100 ; fortune |cowsay $cow_of_fate |pv -qL 200
 fi
