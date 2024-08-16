@@ -51,6 +51,7 @@ alias ls='ls --color=auto'
 alias mv='mv -i'
 alias please='sudo'
 alias rm='rm -I'
+alias ca='cal -yc auto'
 
 #---
 
