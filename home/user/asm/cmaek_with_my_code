@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Tried stabs instead of dwarf, and gdb wouldn't show the source in 'layout split'.
+nasm -f elf -g -F dwarf -o $1.o $1.asm \
+&& \
+gcc -no-pie -m32 -o $1 $2 $1.o \
+&& \
+rm $1.o
+
+# no-pie stands for Position Independent Executable.
+
+# readelf -e <executable or .o file> to read file headers.
+# Use the `size` utility to see the true size of the program. There is padding. For memory protection or stuff
+# `du` shows the size of the file on disk. With buffer and stuff.
+# `du -sh`, `du -sh --apparent-size`, ...
+
+# Usage: ./cmaek_with_my_code calling_my_c_functions test.c 
+

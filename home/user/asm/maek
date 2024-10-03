@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Tried stabs instead of dwarf, and gdb wouldn't show the source in 'layout split'.
+nasm -f elf -g -F dwarf -o $1.o $1.asm \
+&& \
+ld -m elf_i386 -o $1 $1.o \
+&& \
+rm $1.o
+
+# readelf -e <executable or .o file> to read file headers.
+# Use the `size` utility to see the true size of the program. There is padding. For memory protection or stuff
+# `du` shows the size of the file on disk. With buffer and stuff.
+# `du -sh`, `du -sh --apparent-size`, ...
+
