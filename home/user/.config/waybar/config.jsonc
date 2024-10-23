@@ -21,8 +21,8 @@
         "temperature"
     ],
     "modules-center": [
-        "network",
-        "window"
+        //"hyprland/window",
+        "network"
     ],
     "modules-right": [
         "tray",
@@ -141,8 +141,9 @@
         "min-length": 8
     },
 
-    "window": {
-        "format": "{}",
+    "hyprland/window": {
+        "format": "{title}",
+        "icon": true,
         "max-length": 12,
         "min-length": 12
     },
@@ -189,7 +190,7 @@
     },
 
     "tray": {
-        "icon-size": 21,
+        "icon-size": 24,
         "spacing": 10
     }
 }
