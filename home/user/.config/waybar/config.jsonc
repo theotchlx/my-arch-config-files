@@ -21,16 +21,17 @@
         "temperature"
     ],
     "modules-center": [
+        "network",
         "window"
     ],
     "modules-right": [
-        "network",
-        "pulseaudio",
-        "battery",
-        "brightness",
         "tray",
+        "pulseaudio",
+        "backlight",
+        "battery",
         "clock#date",
-        "clock#time"
+        "clock#time",
+        "custom/power"
     ],
 
 
@@ -39,7 +40,7 @@
     // -------------------------------------------------------------------------
 
     "battery": {
-        "interval": 10,
+        "interval": 10, // Time between module reloads (plug/unplug charger)
         "states": {
             "warning": 25,
             "critical": 15
@@ -54,18 +55,24 @@
             ""
         ],
         "tooltip": true,
-        "min-length": 8,
-        "max-length": 10
+        "min-length": 9,
+        "max-length": 9
     },
 
-    "brightness": {
+    "custom/power": {
+        "format": "",
+        "tooltip": "Power Menu",
+        "on-click": "hyprctl dispatch exit",
+        "min-length": 4,
+        "max-length": 4,
+        "interval": 0  // No need to update the module regularly
+    },
+
+    "backlight": {
         "interval": 2,
-        "format": "  {percent}%",
-        "format-icons": {
-            "low": "",
-            "medium": "",
-            "high": ""
-        },
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", ""],
         "tooltip": true,
         "min-length": 8,
         "max-length": 8
@@ -137,7 +144,7 @@
     "window": {
         "format": "{}",
         "max-length": 12,
-        "min-length": 12  // Fixed width for window module
+        "min-length": 12
     },
 
     "hyprland/submap": {
