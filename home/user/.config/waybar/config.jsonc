@@ -160,15 +160,17 @@
         "disable-scroll": true,
         "format": "{icon} {name}",
         "format-icons": {
-            "1:www": "龜",
+            /*"1:www": "龜",
             "2:mail": "",
             "3:editor": "",
             "4:terminals": "",
             "5:portal": "",
-            "urgent": "",
-            "focused": "",
+            "urgent": "",*/
+            "active": "",
+            "empty": "",
             "default": ""
         },
+        "format-focused": "{icon} {name}",
         "min-length": 15,
         "max-length": 15
     },
