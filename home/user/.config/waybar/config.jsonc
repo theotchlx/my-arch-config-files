@@ -22,10 +22,10 @@
     ],
     "modules-center": [
         //"hyprland/window",
-        "network"
+        "network",
+        "tray"
     ],
     "modules-right": [
-        "tray",
         "pulseaudio",
         "backlight",
         "battery",
@@ -121,6 +121,7 @@
         "format-wifi": "  {essid} ({signalStrength}%)",
         "format-ethernet": "  {ifname}: {ipaddr}/{cidr}",
         "format-disconnected": "⚠  Disconnected",
+        "on-click": "nm-connection-editor",
         "tooltip-format": "{ifname}: {ipaddr}",
         "min-length": 20,
         "max-length": 20
