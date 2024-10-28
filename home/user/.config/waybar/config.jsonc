@@ -90,8 +90,8 @@
       "interval": 10,
       "format": "  {:%e %b %Y}",
       "tooltip-format": "{:%e %B %Y}",
-      "min-length": 11,
-      "max-length": 11
+      "min-length": 12,
+      "max-length": 12
     },
 
     "cpu": {
