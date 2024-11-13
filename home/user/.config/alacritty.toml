@@ -1,6 +1,0 @@
-[window]
-padding = { x = 4, y = 4 }
-[font]
-normal = { family = "monospace", style = "regular" }
-size = 9
-
