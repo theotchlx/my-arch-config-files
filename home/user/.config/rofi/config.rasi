@@ -1,0 +1,15 @@
+configuration {
+  modes: [ combi ];
+  combi-modes: [ window, drun, run ];
+}
+
+window {
+  location: south;
+  y-offset: -30px;
+  width: 500;
+  height: 252;
+  padding: 2;
+  border-radius: 4px;
+  font: "Roboto 12";
+}
+
