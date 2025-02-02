@@ -22,7 +22,7 @@ PS1="\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;35m
 
 #---
 
-# some more ls aliases
+# some more aliases
 alias c='xclip -selection clipboard'
 alias cp='cp -i'
 alias grep='grep --color=auto'
@@ -35,7 +35,9 @@ alias ls='ls --color=auto'
 alias mv='mv -i'
 alias please='sudo'
 alias rm='rm -I'
+alias cal='cal -m'
 alias ca='cal -yc auto'
+alias tigg='tig --no-merges'
 alias rstudio='rstudio --enable-features=UseOzonePlatform --ozone-platform=wayland'
 
 #---
