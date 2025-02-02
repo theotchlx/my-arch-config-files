@@ -61,8 +61,16 @@
 
     "custom/power": {
         "format": "",
+    		"tooltip": false,
+    		"menu": "on-click",
+    		"menu-file": "~/.config/waybar/power_menu.xml",
+    		"menu-actions": {
+    			"shutdown": "shutdown now",
+    			"reboot": "reboot",
+    			"suspend": "systemctl suspend",
+    			"hibernate": "systemctl hibernate"
+    		},
         "tooltip": "Power Menu",
-        "on-click": "hyprctl dispatch exit",
         "min-length": 4,
         "max-length": 4,
         "interval": 0  // No need to update the module regularly

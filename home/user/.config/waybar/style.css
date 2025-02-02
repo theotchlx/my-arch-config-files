@@ -244,3 +244,14 @@
     color: #bf616a;
 }
 
+
+/* Style for power menu */
+menu {
+	border-radius: 5px;
+	background: #161320;
+	color: #B5E0E8;
+}
+menuitem {
+	border-radius: 15px;
+}
+
