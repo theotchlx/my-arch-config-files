@@ -1,0 +1,208 @@
+// =============================================================================
+// 
+// Waybar configuration with brightness and sound controls (Fixed size elements)
+//
+// =============================================================================
+
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/submap",
+        "memory",
+        "cpu",
+        "temperature"
+    ],
+    "modules-center": [
+        //"hyprland/window",
+        "network",
+        "tray"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "backlight",
+        "battery",
+        "clock#date",
+        "clock#time",
+        "custom/power"
+    ],
+
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+
+    "battery": {
+        "interval": 10, // Time between module reloads (plug/unplug charger)
+        "states": {
+            "warning": 25,
+            "critical": 15
+        },
+        "format": "  {icon}  {capacity}%",
+        "format-discharging": "{icon}  {capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip": true,
+        "min-length": 9,
+        "max-length": 9
+    },
+
+    "custom/power": {
+        "format": "",
+    		"tooltip": false,
+    		"menu": "on-click",
+    		"menu-file": "~/.config/waybar/power_menu.xml",
+    		"menu-actions": {
+    			"shutdown": "shutdown now",
+    			"reboot": "reboot",
+    			"suspend": "systemctl suspend",
+    			"hibernate": "systemctl hibernate"
+    		},
+        "tooltip": "Power Menu",
+        "min-length": 4,
+        "max-length": 4,
+        "interval": 0  // No need to update the module regularly
+    },
+
+    "backlight": {
+        "interval": 2,
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", ""],
+        "tooltip": true,
+        "min-length": 8,
+        "max-length": 8
+    },
+
+    "clock#time": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "tooltip": false,
+        "min-length": 9,
+        "max-length": 9
+    },
+
+    "clock#date": {
+      "interval": 10,
+      "format": "  {:%e %b %Y}",
+      "tooltip-format": "{:%e %B %Y}",
+      "min-length": 12,
+      "max-length": 12
+    },
+
+    "cpu": {
+        "interval": 5,
+        "format": "  {usage}% ({load})",
+        "states": {
+          "warning": 70,
+          "critical": 90
+        },
+        "min-length": 12,
+        "max-length": 12
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": "  {}%",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        },
+        "min-length": 8,
+        "max-length": 8
+    },
+
+    "network": {
+        "interval": 5,
+        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}",
+        "format-disconnected": "⚠  Disconnected",
+        "on-click": "nm-connection-editor",
+        "tooltip-format": "{ifname}: {ipaddr}",
+        "min-length": 20,
+        "max-length": 20
+    },
+
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon}  {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "tooltip": true,
+        "max-volume": 120,
+        "max-length": 8,
+        "min-length": 8
+    },
+
+    "hyprland/window": {
+        "format": "{title}",
+        "icon": true,
+        "max-length": 12,
+        "min-length": 12
+    },
+
+    "hyprland/submap": {
+        "format": "<span style=\"italic\">  {}</span>",
+        "tooltip": false,
+        "min-length": 80,
+        "max-length": 80
+    },
+
+    "hyprland/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": true,
+        "format": "{icon} {name}",
+        "format-icons": {
+            /*"1:www": "龜",
+            "2:mail": "",
+            "3:editor": "",
+            "4:terminals": "",
+            "5:portal": "",
+            "urgent": "",*/
+            "active": "",
+            "empty": "",
+            "default": ""
+        },
+        "format-focused": "{icon} {name}",
+        "min-length": 15,
+        "max-length": 15
+    },
+
+    "temperature": {
+      "critical-threshold": 80,
+      "interval": 5,
+      "format": "{icon}  {temperatureC}°C",
+      "format-icons": [
+          "",
+          "",
+          "",
+          "",
+          ""
+      ],
+      "tooltip": true,
+      "min-length": 8,
+      "max-length": 8
+    },
+
+    "tray": {
+        "icon-size": 24,
+        "spacing": 10
+    }
+}
+
